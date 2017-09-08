@@ -32,16 +32,6 @@ jQuery(document).ready(function($) {
     	directionNav: false,
     	keyboardNav: true
     });
-    
-
-	//##########################################
-	// Tweet feed
-	//##########################################
-	
-	$("#tweets").tweet({
-        count: 3,
-        username: "ansimuz"
-    });
 
 	//##########################################
 	// Top Widget
