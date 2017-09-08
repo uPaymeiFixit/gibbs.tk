@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
     //##########################################
 	// HOME SLIDER
 	//##########################################
-
+	
     $('.home-slider').flexslider({
     	animation: "fade",
     	controlNav: false,
@@ -32,6 +32,7 @@ jQuery(document).ready(function($) {
     	directionNav: false,
     	keyboardNav: true
     });
+    
 
 	//##########################################
 	// Tweet feed
@@ -41,7 +42,6 @@ jQuery(document).ready(function($) {
         count: 3,
         username: "ansimuz"
     });
-
 
 	//##########################################
 	// Top Widget

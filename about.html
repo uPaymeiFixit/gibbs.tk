@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>uPaymeiFixit | About</title>
+		<title>Gibbs.tk | About</title>
 		
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -67,7 +67,21 @@
 	
 	<body lang="en">
 	
-		<?php $page='about'; include 'includes/header.php'; ?>
+		<header class="clearfix">
+			<div class="wrapper clearfix">
+				<a href="index.html" id="logo"><img  src="img/logo.png"></a>
+				<nav>
+					<ul id="nav" class="sf-menu">
+						<li><a href="index.html">HOME</a></li>
+						<li class="current-menu-item"><a href="about.html">ABOUT</a></li>
+						<li><a href="portfolio.html">PORTFOLIO</a></li>
+						<li><a href="https://www.linkedin.com/in/upaymeifixit/">RESUME</a></li>
+					</ul>
+					<div id="combo-holder"></div>
+				</nav>
+			</div>
+		</header>
+		
 		
 		<!-- MAIN -->
 		<div id="main">	
@@ -84,14 +98,13 @@
 						<h2 class="page-heading"><span>ABOUT ME</span></h2>
 						
 						
-						<!--<p><a href="page-full.php">Personal Life<</a></p>-->
+						<p><a href="page-full.html">Josh Gibbs – Full Stack Developer</a></p>
 						
 						
 						<p>As a kid I enjoyed learning about new technologies. I used to take everyhting apart, which led to me deconstructing my first computer. I mostly taught myself about how computers worked, which brought me to where I am today. I usually do some sort of new project every month to keep me learning about new technologies. I have been interested in programming since I was a kid. Outside of school I am teaching myself PHP, Python, C++. C, Ruby, and various other useful things.</p>
 						
 						<p>GITA is a four year program offered at Brea Olinda High School. This course teaches students four popular computer programming languages as well as other useful skills for being successful. We often have speakers from local businesses, or visit businesses. This allows us to learn more about what we can do to become more successful. </p>
 							<a href='http://globalitacademy.us/Courses.html'>More</a>
-						
 						
 					</div>
 					<!-- ends floated content -->
@@ -101,33 +114,48 @@
 		        		
 		        		<ul>
 			        		<li class="block">
-				        		<h4>CATEGORIES</h4>
-								<ul>
-									<li class="cat-item"><a target='_blank' href="http://bohs-bousd-ca.schoolloop.com/" title="View all posts">BOHS Website</a></li>
-									<li class="cat-item"><a target='_blank' href="http://globalitacademy.us/" title="View all posts">GITA Website</a></li>
-									<li class="cat-item"><a target='_blank' href="http://gitastudents.com/" title="View all posts">GITA Students</a></li>
-									<li class="cat-item"><a target='_blank' href="http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-basic-express" title="View all posts">Visual Studio</a></li>
-									<li class="cat-item"><a target='_blank' href="http://www.codecademy.com/#!/exercises/0" title="View all posts">Learn JavaScript</a></li>
-									<li class="cat-item"><a target='_blank' href="http://www.w3schools.com/" title="View all posts">Learn Web Design</a></li>
-									<li class="cat-item"><a target='_blank' href="http://blog.magicedit.com/HTMLClinic1TheZenOfW.cl" title="View all posts">HTML Basics</a></li>
-									<li class="cat-item"><a target='_blank' href="http://www.reddit.com/r/web_design/comments/qlowz/rwebdesign_lets_put_together_a_list_of_free/" title="View all posts">Free Web Tools</a></li>
-								</ul>
+				        		<h4>LINKS</h4>
+										<ul>
+											<li class="cat-item"><a target='_blank' href="http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-basic-express" title="View all posts">Visual Studio</a></li>
+											<li class="cat-item"><a target='_blank' href="http://www.codecademy.com/#!/exercises/0" title="View all posts">Learn JavaScript</a></li>
+											<li class="cat-item"><a target='_blank' href="http://www.w3schools.com/" title="View all posts">Learn Web Design</a></li>
+											<li class="cat-item"><a target='_blank' href="http://blog.magicedit.com/HTMLClinic1TheZenOfW.cl" title="View all posts">HTML Basics</a></li>
+											<li class="cat-item"><a target='_blank' href="http://www.reddit.com/r/web_design/comments/qlowz/rwebdesign_lets_put_together_a_list_of_free/" title="View all posts">Free Web Tools</a></li>
+										</ul>
 			        		</li>
 			        		
-			        		<!--<li class="block">
-				        		<h4>ARCHIVES</h4>
-								<ul>
-									<li class="cat-item"><a target='_blank' href="#" title="View all posts">January</a></li>
-									<li class="cat-item"><a target='_blank' href="#" title="View all posts">February</a></li>
-									<li class="cat-item"><a target='_blank' href="#" title="View all posts">March</a></li>
-								</ul>
-			        		</li>-->
+			        		<li class="block">
+										<h4>Contact</h4>
+										<ul class="address-block">
+											<li class="address">Orange County, CA</li>
+											<li class="email"><a href="mailto:josh+website@gibbs.tk">josh@gibbs.tk</a></li>
+											<li class="linkedin"><a href="https://www.linkedin.com/in/upaymeifixit/">Linked In</a></li>
+											<li class="facebook"><a href="https://www.messenger.com/t/uPaymeiFixit">Messenger</a></li>
+										</ul>
+			        		</li>
 		        		
 		        		</ul>
 		        		
 		        		<em id="corner"></em>
 		        	</aside>
 					<!-- ENDS sidebar -->
+
+							<!-- contact sidebar -->
+							<!-- <aside id="contact-sidebar">
+									<div class="block">
+										<h4>Address</h4>
+										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor si tincidunt quis, accumsan porttitor, facilisis luctus, mets.</p>
+										
+										<ul class="address-block">
+											<li class="address">Address line, city, state ZIP</li>
+											<li class="phone">+123 456 789</li>
+											<li class="mobile">+123 456 789</li>
+											<li class="email"><a href="mailto:email@server.com">email@server.com</a></li>
+										</ul>
+										
+									</div>	        	
+								</aside> -->
+								<!-- ENDS contact-sidebar -->
 					
 				</div>	        	
 	        	<!--  page content-->
@@ -139,8 +167,21 @@
 		</div>
 		<!-- ENDS MAIN -->
 		
-		<?php include 'includes/footer.html'; ?>
-					
+		<footer>
+			<div class="wrapper">
+				<div class="footer-bottom">
+					<div class="right">
+						<ul id="social-bar">
+							<li><a href="https://www.linkedin.com/in/upaymeifixit/"  title="LinkedIn" class="poshytip"><img src="img/social/linkedin.png"  alt="LinkedIn" /></a></li>
+							<li><a href="https://github.com/upaymeifixit"  title="Github" class="poshytip"><img src="img/social/github.png"  alt="Github" /></a></li>
+							<li><a href="https://www.facebook.com/uPaymeiFixit"  title="Facebook" class="poshytip"><img src="img/social/facebook.png"  alt="Facebook" /></a></li>
+							<li><a href="https://plus.google.com/+JoshGibbs_uPaymeiFixit"  title="Google+" class="poshytip"><img src="img/social/plus.png" alt="Google plus" /></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
 	</body>
 	
 </html>

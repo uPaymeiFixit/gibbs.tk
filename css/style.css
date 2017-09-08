@@ -463,7 +463,6 @@ nav a{
 
 /* PORTFOLIO ------------------------------------------------------------*/
 
-
 .portfolio-thumbs{
 	width: 960px;
 	padding-top: 20px;
@@ -560,23 +559,6 @@ nav a{
 
 /* PROJECT ------------------------------------------------------------*/
 
-.project-container {
-	position: relative;
-	padding-bottom: 45%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-}
-
-.project-container iframe,  
-.project-container object,  
-.project-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
 
 .project-heading{
 	margin: 44px 24px 44px 0px;
@@ -730,7 +712,9 @@ nav a{
 
 .address-block .email{ background: url(../img/icon-email.png) no-repeat top left }
 
-.address-block .tags{ background: url(../img/icon-tags.png) no-repeat top left }
+.address-block .linkedin{ background: url(../img/icon-linkedin.png) no-repeat top left }
+
+.address-block .facebook{ background: url(../img/icon-messenger.png) no-repeat top left }
 
 /* PAGE ------------------------------------------------------------*/
 
@@ -978,12 +962,6 @@ article .meta .user{
 .footer-bottom{
 	margin-top: 30px;
 }
-
-footer .wrapper,
-.footer-bottom{
-	padding-top: 40px;
-}
-
 
 
 /* FOOTER BOTTOM ------------------------------------------------------------*/
