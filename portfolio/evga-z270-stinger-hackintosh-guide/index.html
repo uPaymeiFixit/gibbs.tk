@@ -1,0 +1,496 @@
+<!doctype html>
+<html class="no-js">
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Gibbs.tk | Hackintosh Guide for EVGA Z270 Stinger (200 series)</title>
+        
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" media="all" href="../../css/style.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+        
+        <!-- JS -->
+        <script src="../../js/jquery-1.6.4.min.js"></script>
+        <script src="../../js/css3-mediaqueries.js"></script>
+        <script src="../../js/custom.js"></script>
+        <script src="../../js/tabs.js"></script>
+    
+        <!-- superfish -->
+        <link rel="stylesheet" media="screen" href="../../css/superfish.css" /> 
+        <script  src="../../js/superfish-1.4.8/js/hoverIntent.js"></script>
+        <script  src="../../js/superfish-1.4.8/js/superfish.js"></script>
+        <script  src="../../js/superfish-1.4.8/js/supersubs.js"></script>
+        <!-- ENDS superfish -->
+        
+        <!-- prettyPhoto -->
+        <script  src="../../js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+        <link rel="stylesheet" href="../../js/prettyPhoto/css/prettyPhoto.css"  media="screen" />
+        <!-- ENDS prettyPhoto -->
+        
+        <!-- poshytip -->
+        <link rel="stylesheet" href="../../js/poshytip-1.1/src/tip-twitter/tip-twitter.css"  />
+        <link rel="stylesheet" href="../../js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css"  />
+        <script  src="../../js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+        <!-- ENDS poshytip -->
+        
+        <!-- GOOGLE FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
+        
+        <!-- Flex Slider -->
+        <link rel="stylesheet" href="../../css/flexslider.css" >
+        <script src="../../js/jquery.flexslider-min.js"></script>
+        <!-- ENDS Flex Slider -->
+        
+        <!-- Less framework -->
+        <link rel="stylesheet" media="all" href="../../css/lessframework.css"/>
+        
+        <!-- modernizr -->
+        <script src="../../js/modernizr.js"></script>
+        
+        <!-- SKIN -->
+        <link rel="stylesheet" media="all" href="../../css/skin.css"/>
+        
+        <!-- reply move form -->
+        <script src="../../js/moveform.js"></script>
+        
+        <style type="text/css">
+            code {
+                font-family: SFMono-Regular,Consolas,Liberation,Mono,Melno,Courier,monospace;
+                background-color: rgba(27, 31, 35, 0.075);
+                padding: .2em .4em;
+                border-radius: 3px;
+            }
+        </style>
+
+    </head>
+    
+    <body lang="en">
+    
+        <header class="clearfix">
+            <div class="wrapper clearfix">
+                <a href="index.html" id="logo"><img  src="../../img/logo.png"></a>
+                <nav>
+                    <ul id="nav" class="sf-menu">
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/about">ABOUT</a></li>
+                        <li class="current-menu-item"><a href="/portfolio">PORTFOLIO</a></li>
+                        <li><a href="https://www.linkedin.com/in/upaymeifixit/">RÉSUMÉ</a></li>
+                    </ul>
+                    <div id="combo-holder"></div>
+                </nav>
+            </div>
+        </header>
+
+        
+        <!-- MAIN -->
+        <div id="main"> 
+            <div class="wrapper clearfix">
+            
+                
+                <h2 class="page-heading"><span>SIERRA HACKINTOSH GUIDE FOR EVGA Z270 STINGER (200 SERIES)</span></h2>   
+
+                <!-- project content -->
+                <div id="project-content" class="clearfix">
+                    
+                    <!-- slider -->
+                    <div class="project-slider">
+                    <div class="flexslider">
+                          <ul class="slides">
+                            <li>
+                              <img src="img/slider.png"/>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
+                    <!-- ENDS slider -->
+
+                    <!-- heading -->
+                    <div class="project-heading">
+                        <h2>Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- ENDS heading -->
+
+                    <div class="project-description">
+                        <p>Hackintosh, macOS, Hardware</p>
+                        <p>A guide for installing macOS Sierra on an EVGA Z270 Stinger motherboard and i7-7700k</p>
+
+                        <p>This guide will show you how to install <span style="font-weight:bold">macOS Sierra 10.12.6</span> on a desktop running an EVGA Z270 Stinger motherboard. There are no changes made to the operating system partition, resulting in a very vanilla and therefore upgradable experience. For best results, use the hardware listed below.</p>
+
+                        <h3 id="hardware">Hardware</h3>
+                        <br/>
+
+                        <ul>
+                            <li>
+                                <a href="https://www.evga.com/products/product.aspx?pn=111-KS-E272-KR">&nbsp&nbsp• EVGA Z270 Stinger (111-KS-E272-KR)</a>
+                            </li>
+                            <li>
+                                <a href="https://ark.intel.com/products/97129/Intel-Core-i7-7700K-Processor-8M-Cache-up-to-4_50-GHz">&nbsp&nbsp• i7-7700k</a>
+                            </li>
+                            <li>
+                                <a href="https://www.asus.com/us/Graphics-Cards/GTX670DC24GD5/">&nbsp&nbsp• Asus GTX 670 4GB (GTX670-DC2-4GD5)</a>
+                            </li>
+                            <li>
+                                <a href="http://www.samsung.com/us/computing/memory-storage/solid-state-drives/ssd-960-evo-m-2-500gb-mz-v6e500bw/">&nbsp&nbsp• Samsung 960 EVO NVMe M.2 500GB</a>
+                            </li>
+                        </ul>
+                        <br/>
+
+                        <p><a href="https://pcpartpicker.com/b/ycMZxr">View on PC Part Picker</a></p>
+
+                        <p>Note: This guide may need to be tweaked for similar hardware, such as any other 200 series motherboard. Any (or no) NVMe drive, any Kaby Lake CPU, and any GPU will likely work as is. </p>
+
+
+                        <h3 id="whatworks">What works</h3>
+                        <br/>
+
+                        <ul>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>GPU hardware acceleration</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— Metal Support</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>NVMe</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— TRIM Support</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>Hardware sensors</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>Audio</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— HDMI Audio</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— All 5 analog in/out ports</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>Ethernet</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>Sleep</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— Enters low power mode</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— Audio wakes up</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— Ethernet wakes up</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— Video wakes up</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>Shutdown</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— Stays shut down</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— CMOS does not reset</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>USB</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— USB 3.0</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— USB 3.1</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" checked disabled="disabled">
+                                <span>— USB-C</span>
+                            </li>
+                        </ul>
+
+                        <br/>
+                        <h3 id="whatdoesntwork">What doesn't work</h3>
+                        <br/>
+
+                        <ul>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>iMessage / Facetime</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>Power button</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>Wi-Fi (AW-CB210NF-P)</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>Bluetooth</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>HDCP</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>Nvidia Web Drivers</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>Accurate External / Internal drive icons</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" disabled="disabled">
+                                <span>Sleep slider in <em>System Preferences > Energy Saver</em> is missing</span>
+                            </li>
+                        </ul>
+
+
+                        <br/>
+                        <br/>
+                        <h2 class="page-heading"><span>Instructions</span></h2>
+                        <br/>
+                        <br/>
+
+                        <h2 id="step1">Step 1: Download macOS Sierra</h2>
+                        <br/>
+
+                        <p>On a separate Mac, verify that you are up to date (at least 10.12.6).
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30447848-073ba4b8-9942-11e7-962b-83fb0e4cc110.png" alt="image" /></p>
+                        <p>Find macOS Sierra in the App Store (<a href="https://itunes.apple.com/us/app/macos-sierra/id1127487414?mt=12">direct link</a>) and download it.
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30448242-1410d7b6-9943-11e7-875b-3b3e924c92b6.png" alt="image" /></p>
+                        <p>Quit the installer when it opens.
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30448617-e57ac384-9943-11e7-9a3d-c2027b2b7caf.png" alt="image" /></p>
+
+
+
+                        <h2 id="step2">Step 2: Create Bootable USB</h2>
+                        <br/>
+                        <br/>
+
+                        <h4 id="formatflashdrive">Format Flash Drive</h4>
+                        <br/>
+
+                        <p>Plug an 8+ GB flash drive in.</p>
+
+                        <p>In /Applications/Utilities/<span style="font-weight:bold">Terminal.app</span>, run <code>diskutil list</code> to find your disk identifier. Be sure, because we will be erasing this disk. For example, in the below screenshot my disk identiier is 1. 
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30508728-5764503c-9a52-11e7-9c21-f96aaaf9b0d4.png" alt="image" /></p>
+
+                        <p>Run the following and replace <code>#</code> with your flash drive's disk identifier.</p>
+                        <pre style="overflow:auto"><code>diskutil partitionDisk /dev/disk# GPT JHFS+ "Install macOS Sierra" 100%</code></pre>
+                        <br/>
+                        <br/>
+
+                        <p>You should see a volume named "Install macOS Sierra". Now run the following command to move macOS Sierra onto the drive. This command may take 30-40 minutes.</p>
+                        <pre style="overflow:auto"><code>sudo "/Applications/Install macOS Sierra.app/Contents/Resources/createinstallmedia" --volume /Volumes/Install\ macOS\ Sierra --applicationpath "/Applications/Install macOS Sierra.app" --nointeraction</code></pre>
+                        <br/>
+
+                        <p>In the end, your terminal should look something like this.
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30508742-c1a8beb0-9a52-11e7-8de6-5d37886ba0d4.png" alt="image" /></p>
+
+                        <h4 id="installclover">Install Clover</h4>
+                        <br/>
+
+                        <p>Download the latest version of the Clover EFI bootloader (<a href="https://sourceforge.net/projects/cloverefiboot/files/latest/download?source=files">direct link</a>) and run it. (I used <a href="https://sourceforge.net/projects/cloverefiboot/files/Installer/Clover_v2.4k_r4200.zip/download">Clover_v2.4k_r4200</a>)</p>
+
+                        <p>Click <span style="font-style:italic">Continue</span> twice, and then <span style="font-style:italic">Change Install Location...</span> to select your flash drive.
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30508752-04d93520-9a53-11e7-8003-2316e5a1b725.png" alt="image" /></p>
+
+                        <p>Click <span style="font-style:italic">Continue</span> again and then click <span style="font-style:italic">Customize</span> and check "Install or UEFI booting only"
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30450149-d7581b9c-9945-11e7-8549-76febcebe104.png" alt="image" /></p>
+
+                        <p>Then click <span style="font-style:italic">Install</span> to complete the Clover installation.</p>
+
+                        <br/>
+                        <h4 id="updatecloverconfiguration">Update Clover Configuration</h4>
+                        <br/>
+
+                        <p>Open the <span style="font-style:italic">EFI</span> partition created by Clover, and replace the <span style="font-style:italic">EFI</span> folder with the <a href="https://github.com/uPaymeiFixit/evga-z270-stinger-hackintosh-guide/releases/download/v0.0.1/EFI.zip">attached <span style="font-style:italic">EFI</span> folder</a>.</p>
+
+                        <p>This will replace the <code>config.plist</code> file with the one I have created as well as install needed kexts. The <code>config.plist</code> file I created contains only the minimum configuration needed for a completely working system. I spent many hours testing many configurations and making sure only what was necessary was added. If you want to use more up-to-date kexts, view the <span style="font-style:italic">Sources</span> section at the bottom.</p>
+
+                        <br/>
+                        <h2 id="step3">Step 3: Configure BIOS</h2>
+                        <br/>
+                        <br/>
+
+                        <p>During boot, press F2 to enter BIOS. Navigate to the <span style="font-style:italic">ADVANCED</span> tab and then click on <span style="font-style:italic">CPU Configuration</span>. Set <span style="font-style:italic">Intel(R) Virtualization Technology For Directed I/O</span> to <span style="font-style:italic">Disabled</span>. 
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30518388-896d9f0e-9b31-11e7-9eed-8c92ac6e1fff.jpg" alt="img_20170915_202425" /></p>
+
+                        <p>Set the primary boot device to USB Hard Disk.
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30518394-a139cee6-9b31-11e7-9d8b-956b71c48f40.jpg" alt="img_20170915_202326" /></p>
+
+                        <p>Now press F10 to save and exit setup. Alternatively, you may apply the BIOS backup I created <a href="">here</a>.</p>
+
+                        <br/>
+                        <h2 id="step4">Step 4: Install macOS</h2>
+                        <br/>
+                        <br/>
+
+                        <h4 id="installation">Installation</h4>
+                        <br/>
+
+                        <p>With the flash drive plugged in, boot the computer. If all goes well, you should be at the macOS installer screen. When the two part installer finishes, boot the computer one more time with the flash drive still plugged in. </p>
+
+                        <p>You should now see your new macOS install as a bootable option in Clover. Select it and wait for it to boot. After logging in, </p>
+
+                        <h4 id="installclover-1">Install Clover</h4>
+                        <br/>
+
+                        <p>Download the latest version of the Clover EFI bootloader (<a href="https://sourceforge.net/projects/cloverefiboot/files/latest/download?source=files">direct link</a>) and run it. (I used <a href="https://sourceforge.net/projects/cloverefiboot/files/Installer/Clover_v2.4k_r4200.zip/download">Clover_v2.4k_r4200</a>)</p>
+
+                        <p>Click <span style="font-style:italic">Continue</span> twice, and then <span style="font-style:italic">Change Install Location...</span> to select your macOS installation.
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30517483-b7328baa-9b15-11e7-967f-afe30857dfeb.png" alt="image" /></p>
+
+                        <p>Click <span style="font-style:italic">Continue</span> again and then click <span style="font-style:italic">Customize</span> and check "Install or UEFI booting only"
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/30450149-d7581b9c-9945-11e7-8549-76febcebe104.png" alt="image" /></p>
+
+                        <p>Then click <span style="font-style:italic">Install</span> to complete the Clover installation.</p>
+
+                        <h4 id="updatecloverconfiguration-1">Update Clover Configuration</h4>
+                        <br/>
+
+                        <p>Open the <span style="font-style:italic">EFI</span> partition created by Clover, and replace the <span style="font-style:italic">EFI</span> folder with the <a href="https://github.com/uPaymeiFixit/evga-z270-stinger-hackintosh-guide/releases/download/v0.0.1/EFI.zip">attached <span style="font-style:italic">EFI</span> folder</a>.</p>
+
+                        <p>This will replace the <code>config.plist</code> file with the one I have created as well as install needed kexts. The <code>config.plist</code> file I created contains only the minimum configuration needed for a completely working system. I spent many hours testing many configurations and making sure only what was necessary was added. If you want to use more up-to-date kexts, view the <span style="font-style:italic">Sources</span> section at the bottom.</p>
+
+                        <br/>
+                        <br/>
+                        <h1 id="kextspatchessources">Kexts / Patches / Sources</h1>
+                        <br/>
+                        <br/>
+
+                        <ul>
+                            <li>
+                                <a href="https://pikeralpha.wordpress.com/2016/06/27/nvmefamily-kext-bin-patch-data/comment-page-1/#comment-5855">&nbsp&nbsp• NVMe Kext Patch (config.plist)</a> from Pike R. Alpha
+                            </li>
+                            <li>
+                                <a href="http://www.hwsensors.com/releases">&nbsp&nbsp• ACPISensors.kext, CPUSensors.kext, FakeSMC.kext, GPUSensors.kext, LPCSensors.kext</a> from HWSensors Project (Binaries)
+                            </li>
+                            <li>
+                                <a href="https://github.com/toleda/audio_CloverHDMI">&nbsp&nbsp• HDMIAudio.kext</a> from Toleda
+                            </li>
+                            <li>
+                                <a href="https://github.com/Mieze/IntelMausiEthernet">&nbsp&nbsp• IntelMausiEthernet.kext</a> from Mieze
+                            </li>
+                            <li>
+                                <a href="https://github.com/vit9696/Lilu">&nbsp&nbsp• Lilu.kext</a> from vit9696
+                            </li>
+                            <li>
+                                <a href="https://github.com/vit9696/AppleALC/releases">&nbsp&nbsp• AppleALC.kext</a> from vit9696
+                            </li>
+                            <li>
+                                <a href="https://sourceforge.net/projects/nvidiagraphicsfixup/">&nbsp&nbsp• NvidiaGraphicsFixup.kext</a> from lvs1974
+                            </li>
+                            <li>
+                                <a href="https://github.com/RehabMan/OS-X-USB-Inject-All">&nbsp&nbsp• USBInjectAll.kext, XHCI-200-series-injector.kext</a> from RehabMan
+                            </li>
+                        </ul>
+
+                        <br/>
+                        <br/>
+                        <p><a href="https://github.com/uPaymeiFixit/evga-z270-stinger-hackintosh-guide">Open on Github</a></p>
+                    </div>
+                    
+                    <div class="project-info">
+                        <p>
+                        <strong>Date</strong><br/>
+                        October 4, 2017
+                        </p>
+                        <p>
+                        <strong>Skills</strong><br/>
+                        Hackintosh, macOS, Hardware, Operating Systems, PC Building
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                    
+                    <div class="project-pager">
+                        <a class="previous-project" href="#">&#8592; Previous project</a>
+                        <a class="next-project" href="#">Next project &#8594;</a>
+                    </div>
+                    
+                    
+                    <!-- related -->
+                    <div class="related-projects">
+                        <div class="related-heading">Related projects</div>
+                        <div class="related-list">
+                            <figure>
+                                <a href="#" class="thumb"><img src="img/thumbnail.jpg"/></a>
+                                <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                            </figure>
+                            
+                            <figure>
+                                <a href="#" class="thumb"><img src="img/thumbnail.jpg"/></a>
+                                <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                            </figure>
+                            
+                            <figure>
+                                <a href="#" class="thumb"><img src="img/thumbnail.jpg"/></a>
+                                <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                            </figure>
+                            
+                            <figure class="last">
+                                <a href="#" class="thumb"><img src="img/thumbnail.jpg"/></a>
+                                <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                            </figure>
+                            
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- ENDS related -->
+                    
+                </div>              
+                <!--  ENDS project content-->
+
+                
+            </div>
+        </div>
+        <!-- ENDS MAIN -->
+        
+        
+        <footer>
+            <div class="wrapper">
+                <div class="footer-bottom">
+                    <div class="right">
+                        <ul id="social-bar">
+                            <li><a href="https://www.linkedin.com/in/upaymeifixit/"  title="LinkedIn" class="poshytip"><img src="../../img/social/linkedin.png"  alt="LinkedIn" /></a></li>
+                            <li><a href="https://github.com/upaymeifixit"  title="Github" class="poshytip"><img src="../../img/social/github.png"  alt="Github" /></a></li>
+                            <li><a href="https://www.facebook.com/uPaymeiFixit"  title="Facebook" class="poshytip"><img src="../../img/social/facebook.png"  alt="Facebook" /></a></li>
+                            <li><a href="https://plus.google.com/+JoshGibbs_uPaymeiFixit"  title="Google+" class="poshytip"><img src="../../img/social/plus.png" alt="Google plus" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+                    
+    </body>
+    
+</html>
