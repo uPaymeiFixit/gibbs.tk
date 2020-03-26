@@ -1,0 +1,616 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gibbs.tk | OpenCore Guide for EVGA Z270 Stinger (200 series)</title>
+
+    <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" media="all" href="../../css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
+    <!-- JS -->
+    <script src="../../js/jquery-1.6.4.min.js"></script>
+    <script src="../../js/css3-mediaqueries.js"></script>
+    <script src="../../js/custom.js"></script>
+    <script src="../../js/tabs.js"></script>
+
+    <!-- superfish -->
+    <link rel="stylesheet" media="screen" href="../../css/superfish.css" />
+    <script src="../../js/superfish-1.4.8/js/hoverIntent.js"></script>
+    <script src="../../js/superfish-1.4.8/js/superfish.js"></script>
+    <script src="../../js/superfish-1.4.8/js/supersubs.js"></script>
+    <!-- ENDS superfish -->
+
+    <!-- prettyPhoto -->
+    <script src="../../js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+    <link rel="stylesheet" href="../../js/prettyPhoto/css/prettyPhoto.css" media="screen" />
+    <!-- ENDS prettyPhoto -->
+
+    <!-- poshytip -->
+    <link rel="stylesheet" href="../../js/poshytip-1.1/src/tip-twitter/tip-twitter.css" />
+    <link rel="stylesheet" href="../../js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css" />
+    <script src="../../js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+    <!-- ENDS poshytip -->
+
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- Flex Slider -->
+    <link rel="stylesheet" href="../../css/flexslider.css">
+    <script src="../../js/jquery.flexslider-min.js"></script>
+    <!-- ENDS Flex Slider -->
+
+    <!-- Less framework -->
+    <link rel="stylesheet" media="all" href="../../css/lessframework.css" />
+
+    <!-- modernizr -->
+    <script src="../../js/modernizr.js"></script>
+
+    <!-- SKIN -->
+    <link rel="stylesheet" media="all" href="../../css/skin.css" />
+
+    <!-- reply move form -->
+    <script src="../../js/moveform.js"></script>
+
+    <style type="text/css">
+        code {
+            font-family: SFMono-Regular, Consolas, Liberation, Mono, Melno, Courier, monospace;
+            background-color: rgba(27, 31, 35, 0.075);
+            padding: .2em .4em;
+            border-radius: 3px;
+        }
+    </style>
+
+</head>
+
+<body lang="en">
+
+    <header class="clearfix">
+        <div class="wrapper clearfix">
+            <a href="index.html" id="logo"><img src="../../img/logo.png"></a>
+            <nav>
+                <ul id="nav" class="sf-menu">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                    <li class="current-menu-item"><a href="/portfolio">PORTFOLIO</a></li>
+                    <li><a href="https://www.linkedin.com/in/upaymeifixit/">RÉSUMÉ</a></li>
+                </ul>
+                <div id="combo-holder"></div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <div id="main">
+        <div class="wrapper clearfix">
+
+
+            <h2 class="page-heading"><span>HIGH SIERRA HACKINTOSH GUIDE FOR EVGA Z270 STINGER (200 SERIES)</span></h2>
+
+            <!-- project content -->
+            <div id="project-content" class="clearfix">
+
+                <!-- slider -->
+                <div class="project-slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="img/slider.png" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ENDS slider -->
+
+                <!-- heading -->
+                <div class="project-heading">
+                    <h2>High Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- ENDS heading -->
+
+                <div class="project-description">
+                    <p>Hackintosh, macOS, OpenCore, Hardware</p>
+                    <p>A guide for installing macOS High Sierra on an EVGA Z270 Stinger motherboard and i7-7700k with
+                        OpenCore</p>
+
+                    <p>This guide will show you how to install <span style="font-weight:bold">macOS High Sierra
+                            10.13.6</span> on a desktop running an EVGA Z270 Stinger motherboard. There are no changes
+                        made to the operating system partition, resulting in a very vanilla and therefore upgradable
+                        experience. This guide uses the OpenCore bootloader instead of Clover. This is important to know
+                        when diagnosing problems. For best results, use the hardware listed below.</p>
+
+                    <h3 id="hardware">Hardware</h3>
+                    <br />
+
+                    <ul>
+                        <li>
+                            <a href="https://www.evga.com/products/product.aspx?pn=111-KS-E272-KR">
+                                &nbsp&nbsp• EVGA Z270 Stinger (111-KS-E272-KR)
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://ark.intel.com/products/97129/Intel-Core-i7-7700K-Processor-8M-Cache-up-to-4_50-GHz">
+                                &nbsp&nbsp• i7-7700k
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.evga.com/products/product.aspx?pn=11G-P4-6593-RX">
+                                &nbsp&nbsp• EVGA GTX 1080 Ti SC2
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="http://www.samsung.com/us/computing/memory-storage/solid-state-drives/ssd-960-evo-m-2-500gb-mz-v6e500bw/">
+                                &nbsp&nbsp• Samsung 960 EVO NVMe M.2 500GB
+                            </a>
+                        </li>
+                    </ul>
+                    <br />
+
+                    <p><a href="https://pcpartpicker.com/b/ycMZxr">View on PC Part Picker</a></p>
+
+                    <p>Note: This guide may need to be tweaked for similar hardware, such as any other 200 series
+                        motherboard. Any (or no) NVMe drive, any Kaby Lake CPU, and any GPU will likely work as is.I
+                        won't go into too much detail on this guide as there will be more relevant and up-to-date
+                        information for your
+                        specific machine. The <a
+                            href="https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/">OpenCore vanilla
+                            guide</a> is a great resource, albeit rather long. Your main takeaway from this
+                        should be that the focus is 100% on the bootloader / EFI folder. No monifications need be made
+                        to macOS other than
+                        installing the Nvidia Web Drivers. </p>
+
+
+                    <h3 id="whatworks">What works</h3>
+                    <br />
+
+                    <ul>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>GPU hardware acceleration</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— Metal Support</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>NVMe</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— TRIM Support</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Hardware sensors</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Audio</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— All 5 analog in/out ports</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Ethernet</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Sleep</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— Enters low power mode</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— Audio wakes up</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— Ethernet wakes up</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— Video wakes up</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Shutdown</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— Stays shut down</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— CMOS does not reset</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>USB</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— USB 3.0</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— USB 3.1</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— USB-C</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Bluetooth</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Accurate External / Internal drive icons</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>HDCP</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>NVRAM</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>– Bootcamp (Startup disk selection)</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>– iMessage / Facetime</span>
+                        </li>
+                    </ul>
+
+                    <br />
+                    <h3 id="whatdoesntwork">What doesn't work</h3>
+                    <br />
+
+                    <ul>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>Audio</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked disabled="disabled">
+                            <span>— HDMI Audio (only one port works)</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" disabled="disabled">
+                            <span>Power button</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" disabled="disabled">
+                            <span>Wi-Fi (AW-CB210NF-P)</span>
+                        </li>
+                    </ul>
+
+
+                    <br />
+                    <br />
+                    <h2 class="page-heading"><span>Instructions</span></h2>
+                    <br />
+                    <br />
+
+                    <h2 id="step1">Step 1: Create Installer</h2>
+                    <br />
+
+                    <p>Insert a flash drive and rename it <code>DELETE</code>. (<span
+                            style="font-weight:bold">IMPORTANT:</span> The
+                        drive and everything on it will be erased.) Then open a
+                        terminal (/Applications/Utilites/Terminal.app) and copy and paste the following:
+
+                        <pre
+                            style="overflow:auto"><code>bash <(curl -s https://raw.githubusercontent.com/uPaymeiFixit/evga-z270-stinger-macOS-high-sierra-guide/master/high-sierra-media-creation-tool.command)</code></pre>
+                        <br />
+                        <br />
+
+                        <img width="100%"
+                            src="https://user-images.githubusercontent.com/1683528/77610004-bfed0c80-6ede-11ea-95cf-2f2efbc7b0cb.gif"
+                            alt="image" />
+                    </p>
+
+                    <h3>How does it work? (you don't have to read this)</h3>
+                    <br />
+                    <p>
+                        If you're reading this, that's good. You probably understand that running a script blindly (and
+                        with root permissions)
+                        can be extremely dangerous. Only run these types of scripts if you trust the author. I'll
+                        explain how it works so you
+                        can better dig through yourself.
+                    </p>
+                    <p>
+                        This step is usually broken up into downloading macOS, preparing the install media, and
+                        installing the bootloader. I
+                        wrote a quick script to do all of this in one step.
+                    </p>
+                    <p>
+                        The first thing this script does is partition the disk who has a volume named <code>DELETE</code>
+                    </p>
+                    <pre
+                        style="overflow:auto"><code>diskutil partitionDisk /dev/`diskutil info "DELETE" | grep "Part of Whole:" | tail -c 6` GPT JHFS+ "DELETE" 100%</code></pre>
+                    <br />
+                    <p>
+                        After we've formatted the drive the script downloads macOS High Sierra
+                        straight from Apple's CDN. The os is broken up into many different files, so we have to
+                        download them all.
+                    </p>
+                        <pre style="overflow:auto"><code>wget http://swcdn.apple.com/content/downloads/06/50/041-91758-A_M8T44LH2AW/b5r4og05fhbgatve4agwy4kgkzv07mdid9/BaseSystem.chunklist
+...
+wget http://swcdn.apple.com/content/downloads/06/50/041-91758-A_M8T44LH2AW/b5r4og05fhbgatve4agwy4kgkzv07mdid9/InstallInfo.plist</code></pre>
+                        <br />
+                    <p>
+                        Next we download CorpNewt's <a href="https://github.com/corpnewt/gibMacOS">gibMacOS</a> utility and use it to compile the files we just
+                        downloaded into Install macOS High Sierra.app. This is not my script, and I don't know how
+                        it works, but I'm glad it exists and I trust it because it doesn't ask for any elevated
+                        permissions and we're only downloading an archived version, so nothing new and malicious can
+                        be added. 
+                    </p>
+                    <pre style="overflow:auto"><code>wget https://github.com/corpnewt/gibMacOS/archive/c2e45ce568069d0dce027ec84d9c1ed8bbad2e21.zip
+... 
+echo "high-sierra-files" | ./gibMacOS-c2e45ce568069d0dce027ec84d9c1ed8bbad2e21/BuildmacOSInstallApp.command</code></pre>
+                    <br />
+                     
+                    
+                    <p>
+                        Now we download my repository containing my EFI folder.
+                    </p>
+                    <pre style="overflow:auto"><code>wget https://github.com/uPaymeiFixit/evga-z270-stinger-hackintosh-guide/archive/master.zip</code></pre>
+                    <br />
+                        
+                    <p>
+                        Next we find the volume named Install macOS High Sierra and mount the EFI partition, then copy my EFI folder to it. 
+                    </p>
+                    <pre style="overflow:auto"><code>diskutil mount "`diskutil info " Install macOS High Sierra" | grep "Part of Whole:" | tail -c 6`s1"
+...
+cp -a evga-z270-stinger-hackintosh-guide-master/EFI /Volumes/EFI/</code></pre>
+                    <br />
+                         
+                    <p>
+                        That's it! You should now have a
+                        flash drive that can boot a macOS installer. For the most part that creates your entire
+                        hackintosh, and if you're using all of the hardware I'm using you shouldn't run into any
+                        problems. If you do run into problems, most can be solved by tweaking the config.plist in
+                        the EFI partition. I would recommend you take a look at the Kaby Lake OpenCore configuration
+                        to start.
+                    </p>
+
+
+                    <br />
+                    <h2 id="step2">Step 2: Configure BIOS</h2>
+                    <br />
+
+                    <p>
+                        During boot, press <code>F2</code> or <code>DEL</code> to enter BIOS.
+                        <br />
+                        <br />
+                        The most important thing is that you disable CSM. Navigate to the BOOT tab and then into CSM Configuration. Set CSM Support to Disabled
+                    </p>
+                        <img width="100%" src="https://user-images.githubusercontent.com/1683528/77609620-aeefcb80-6edd-11ea-9fcb-e07862d2a243.jpg" alt="csm_support" />
+
+<br />
+<br />
+<p>
+If you run into problems, disable VT-d. While it's commonly recommended you disable this, it actually seemed to break sleep on my machine so I have it enabled. You can find this setting in the *ADVANCED* tab and then click on *CPU Configuration*. Set *Intel(R) Virtualization Technology For Directed I/O* to *Disabled*.
+</p>
+<img width="100%" src="https://user-images.githubusercontent.com/1683528/77609748-1574e980-6ede-11ea-81dd-bc830d7542e1.jpg" alt="advanced" />
+<img width="100%" src="https://user-images.githubusercontent.com/1683528/77609757-186fda00-6ede-11ea-9b3e-c147b602d7ce.jpg" alt="virtualization" />
+
+<br />
+<br />
+<p>
+Also make sure at least one of your Boot Options is set to USB Key or USB Hard Disk so you can boot from your flash drive.
+</p>
+<img width="100%" src="https://user-images.githubusercontent.com/1683528/77609758-19087080-6ede-11ea-85de-1ddc20b0c5a7.jpg" alt="boot" />
+
+<br />
+<br />
+<p>
+Now press F10 to save and exit setup, then boot from the flash drive. (You may have to manually select this boot device from the BIOS if it doesn't boot from it automatically.
+</p>
+
+<br />
+<h2 id="step3">Step 3: Install macOS</h2>
+<br />
+<p>
+Boot the computer with the flash drive plugged in, and if all goes well after a while you should be greeted with the macOS installer screen. Go through the installation normally. When the two part installer finishes boot the computer one more time with the flash drive still plugged in. 
+<br />
+<br />
+Note: You may need to hold down option / alt while booting to pick your new macOS installation if it keeps booting to the installer.
+</p>
+
+<img width="100%" src="https://user-images.githubusercontent.com/1683528/77609869-62f15680-6ede-11ea-890a-79ca832e5f42.png" alt="installer" />
+
+<br />
+<br />
+<br />
+<h2 id="step4">Step 4: Post Install</h2>
+<br />
+<br />
+<h3>OpenCore Bootloader</h3>
+<br />
+<p>
+Now we can boot from the flash drive, but if we want to remove the flash drive we'll need to copy the bootloader from it to our local disk. If all went well you should be able to just copy the EFI folder from your install media to your macOS drive. Could I have made a script for this? Yes, but it's difficult to get the booted drive identifier and I'm pretty sure I'm the only person who is ever going to read this. But let me know if I'm wrong and this helped you.
+</p>
+The first thing we need to do is identify our EFI partitions. Open a terminal again and type <code>diskutil list</code>. This should give you an output similar (but probably not identicle) to my screenshot below. 
+
+<img width="100%" src="https://user-images.githubusercontent.com/1683528/77609922-8a482380-6ede-11ea-92ee-bb8f412f7cc1.png" alt="diskutil_list" />
+
+<p>
+The first drive we want to identify and mount is the flash drive you used to install with. It should be named <code>Install macOS High Sierra</code>. In my case that's <code>disk4</code>, and the EFI partition on that disk is <code>1</code>. Type the following command being very careful to replace the 4 and 1 with your corrosponding disk and partition identifiers. 
+</p>
+<pre style="overflow:auto"><code>sudo diskutil mount disk4s1</code></pre>
+<br />
+
+<p>
+Now we want to do the same for the EFI partiton on our local disk. This one can be tricky because APFS does this weird thing where it creates another synthesized disk which is where your OS lives, but not the EFI folder we want to mount. That's the case with mine. As you can see my `macOS` partition is disk1s1 but the corrosponding EFI partition is actually on disk0s1. We will mount it the same way.
+</p>
+<pre style="overflow:auto"><code>sudo diskutil mount disk0s1</code></pre>
+
+<img width="100%" src="https://user-images.githubusercontent.com/1683528/77609926-8b795080-6ede-11ea-9288-15a9e5d8d11a.png" alt="diskutil_mount" />
+
+<p>
+Now we'll copy the EFI folder from the flash drive's EFI partiton to our local disk's EFI partition. You can do this manually or paste the following in the terminal.
+</p>
+<pre style="overflow:auto"><code>sudo cp -a /Volumes/EFI/EFI /Volumes/EFI\ 1/</code></pre>
+<br />
+<p>
+Done! You should be able to boot without the flash drive now.
+</p>
+<h3>Nvidia Web Drivers</h3>
+<p>
+If you have an Nvidia card you may need to install the Nvidia Web Drivers to get accelerated graphics. You'll know if your graphics aren't accelerated. Annimations will be very weird and the dock won't be transparent. My favorite way to do this is to use Benjamin Dobell's <a href="https://github.com/Benjamin-Dobell/nvidia-update">nvidia-update</a> script by copying and pasting the script below into a terminal:
+</p>
+<pre style="overflow:auto"><code>bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)</code></pre>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+                    <br />
+                    <br />
+                    <h1 id="kextspatchessources">Kexts / Patches / Sources Credits</h1>
+                    <br />
+                    <br />
+
+                    <ul>
+                        <li>
+                            <a
+                                href="https://github.com/acidanthera/OpenCorePkg">
+                                &nbsp&nbsp• OpenCore</a> from Acidanthera and others
+                        </li>
+                        <li>
+                            <a href="https://github.com/corpnewt/gibMacOS">
+                                &nbsp&nbsp• gibMacOS</a> from CorpNewt
+                        </li>
+                        <li>
+                            <a href="https://github.com/Benjamin-Dobell/nvidia-update">
+                                &nbsp&nbsp• nvidia-update</a> from Benjamin Dobell
+                        </li>
+                        <li>
+                            <a href="https://github.com/toleda/audio_CloverHDMI">&nbsp&nbsp• HDMIAudio.kext</a>
+                            from
+                            Toleda
+                        </li>
+                        <li>
+                            <a href="https://github.com/Mieze/IntelMausiEthernet">&nbsp&nbsp•
+                                IntelMausiEthernet.kext</a> from Mieze
+                        </li>
+                        <li>
+                            <a href="https://github.com/vit9696/Lilu">&nbsp&nbsp• Lilu.kext</a> from vit9696
+                        </li>
+                        <li>
+                            <a href="https://github.com/vit9696/AppleALC/releases">&nbsp&nbsp• AppleALC.kext</a>
+                            from
+                            vit9696
+                        </li>
+                    </ul>
+
+                    <br />
+                    <br />
+                    <p><a href="https://github.com/uPaymeiFixit/evga-z270-stinger-hackintosh-guide">Open on
+                            Github</a>
+                    </p>
+                </div>
+
+                <div class="project-info">
+                    <p>
+                        <strong>Date</strong><br />
+                        March 26, 2020
+                    </p>
+                    <p>
+                        <strong>Skills</strong><br />
+                        Hackintosh, macOS, Hardware, Operating Systems, PC Building
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="project-pager">
+                    <a class="previous-project" href="#">&#8592; Previous project</a>
+                    <a class="next-project" href="#">Next project &#8594;</a>
+                </div>
+
+
+                <!-- related -->
+                <div class="related-projects">
+                    <div class="related-heading">Related projects</div>
+                    <div class="related-list">
+                        <figure>
+                            <a href="#" class="thumb"><img src="img/thumbnail.jpg" /></a>
+                            <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                        </figure>
+
+                        <figure>
+                            <a href="#" class="thumb"><img src="img/thumbnail.jpg" /></a>
+                            <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                        </figure>
+
+                        <figure>
+                            <a href="#" class="thumb"><img src="img/thumbnail.jpg" /></a>
+                            <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                        </figure>
+
+                        <figure class="last">
+                            <a href="#" class="thumb"><img src="img/thumbnail.jpg" /></a>
+                            <a href="#" class="heading">Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</a>
+                        </figure>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- ENDS related -->
+
+            </div>
+            <!--  ENDS project content-->
+
+
+        </div>
+    </div>
+    <!-- ENDS MAIN -->
+
+
+    <footer>
+        <div class="wrapper">
+            <div class="footer-bottom">
+                <div class="right">
+                    <ul id="social-bar">
+                        <li><a href="https://www.linkedin.com/in/upaymeifixit/" title="LinkedIn" class="poshytip"><img
+                                    src="../../img/social/linkedin.png" alt="LinkedIn" /></a></li>
+                        <li><a href="https://github.com/upaymeifixit" title="Github" class="poshytip"><img
+                                    src="../../img/social/github.png" alt="Github" /></a></li>
+                        <li><a href="https://www.facebook.com/uPaymeiFixit" title="Facebook" class="poshytip"><img
+                                    src="../../img/social/facebook.png" alt="Facebook" /></a></li>
+                        <li><a href="https://plus.google.com/+JoshGibbs_uPaymeiFixit" title="Google+"
+                                class="poshytip"><img src="../../img/social/plus.png" alt="Google plus" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
