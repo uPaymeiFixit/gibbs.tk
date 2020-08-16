@@ -1,0 +1,6 @@
+{
+  "title": "Space Zombies",
+  "description": "An old draft of a simple zombie-style 2D game using an HTML5 Canvas. Used often to test my multiplayer libraries using Socket.io.",
+  "date": "April 26, 2012",
+  "featured": true
+}

@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Gibbs.tk | Home</title>
+		
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href="css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+		
+		
+		<!-- JS -->
+		<script src="js/jquery-1.6.4.min.js"></script>
+		<script src="js/css3-mediaqueries.js"></script>
+		<script src="js/custom.js"></script>
+		<script src="js/tabs.js"></script>
+
+		<!-- superfish -->
+		<link rel="stylesheet" media="screen" href="css/superfish.css" /> 
+		<script  src="js/superfish-1.4.8/js/hoverIntent.js"></script>
+		<script  src="js/superfish-1.4.8/js/superfish.js"></script>
+		<script  src="js/superfish-1.4.8/js/supersubs.js"></script>
+		<!-- ENDS superfish -->
+		
+		<!-- prettyPhoto -->
+		<script  src="js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+		<link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css"  media="screen" />
+		<!-- ENDS prettyPhoto -->
+		
+		<!-- poshytip -->
+		<link rel="stylesheet" href="js/poshytip-1.1/src/tip-twitter/tip-twitter.css"  />
+		<link rel="stylesheet" href="js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css"  />
+		<script  src="js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+		<!-- ENDS poshytip -->
+		
+		<!-- GOOGLE FONTS -->
+		<link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300' rel='stylesheet' type='text/css'>
+		
+		<!-- Flex Slider -->
+		<link rel="stylesheet" href="css/flexslider.css" >
+		<script src="js/jquery.flexslider-min.js"></script>
+		<!-- ENDS Flex Slider -->
+		
+		<!-- Less framework -->
+		<link rel="stylesheet" media="all" href="css/lessframework.css"/>
+		
+		<!-- modernizr -->
+		<script src="js/modernizr.js"></script>
+		
+		<!-- SKIN -->
+		<link rel="stylesheet" media="all" href="css/skin.css"/>
+		
+	</head>
+	
+	<body lang="en">
+		
+		<header class="clearfix">
+			<div class="wrapper clearfix">
+				<a href="/" id="logo"><img  src="img/logo.png"></a>
+				<nav>
+					<ul id="nav" class="sf-menu">
+						<li class="current-menu-item"><a href="/">HOME</a></li>
+						<li><a href="/about">ABOUT</a></li>
+						<li><a href="/portfolio">PORTFOLIO</a></li>
+						<li><a href="https://www.linkedin.com/in/upaymeifixit/">RÉSUMÉ</a></li>
+					</ul>
+					<div id="combo-holder"></div>
+				</nav>
+			</div>
+		</header>
+		
+		<!-- MAIN -->
+		<div id="main">	
+			<div class="wrapper">
+
+				<!-- slider holder -->
+				<div id="slider-holder" class="clearfix">
+					
+					<!-- slider -->
+				    <div class="flexslider home-slider">
+						<ul class="slides">
+						    <li>
+						      	<img src="about/img/slider1/01.jpg"/>
+						    </li>
+						    <li>
+								<img src="about/img/slider2/02.jpg"/>
+								<p class="flex-caption">1972 Jeep CJ5 — Rebuilt</p>								
+						    </li>
+						    <li>
+								<img src="about/img/slider1/08.jpg"/>
+								<p class="flex-caption">Cal State Long Beach — Hackathon</p>
+							</li>
+						    <li>
+								<img src="about/img/slider1/05.jpg"/>
+						    </li>
+						</ul>
+					</div>
+			    	<!-- ENDS slider -->
+		        	
+					<div class="home-slider-clearfix "></div>
+				
+					<!-- Headline -->
+					<div id="headline">
+						<h1>FULL STACK DEVELOPER</h1>
+						<p>I graduated from Cal Poly Pomona with a B.S. in Computer Science. I have worked at <a href="http://www.boeing.com/">Boeing</a>, <a href="https://www.beckmancoulter.com/wsrportal/wsrportal.portal?_nfpb=true&_windowLabel=UCM_RENDERER&_urlType=render&wlpUCM_RENDERER_path=%252Fwsr%252Findex.htm">Beckman Coulter</a>, and <a href="http://castifi.com/">Castifi</a> as a full stack developer, database administrator, project manager, and more. I'm constantly working on personal projects.</p>
+						<em id="corner"></em>
+					</div>
+					<!-- ENDS headline -->
+					
+					
+				</div>
+				<!-- ENDS slider holder -->
+				
+				
+				<!-- home-block -->
+				<div class="home-block">
+					<h2 class="home-block-heading"><span>FEATURED PROJECTS</span></h2>
+					<div class="one-third-thumbs clearfix" >
+
+						<figure>
+							<figcaption>
+								<strong>{{featured.0.title}}</strong>
+								<span>{{featured.0.description}}</span>
+								<em>{{featured.0.date}}</em>
+								<a href="portfolio/{{featured.0.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{featured.0.location}}"  class="thumb"><img src="portfolio/{{featured.0.location}}/img/thumbnail.jpg"/></a>
+						</figure>
+
+						<figure>
+							<figcaption>
+								<strong>{{featured.1.title}}</strong>
+								<span>{{featured.1.description}}</span>
+								<em>{{featured.1.date}}</em>
+								<a href="portfolio/{{featured.1.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{featured.1.location}}"  class="thumb"><img src="portfolio/{{featured.1.location}}/img/thumbnail.jpg"/></a>
+						</figure>
+
+						<figure class="last">
+							<figcaption>
+								<strong>{{featured.2.title}}</strong>
+								<span>{{featured.2.description}}</span>
+								<em>{{featured.2.date}}</em>
+								<a href="portfolio/{{featured.2.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{featured.2.location}}"  class="thumb"><img src="portfolio/{{featured.2.location}}/img/thumbnail.jpg"/></a>
+						</figure>
+						
+						<figure>
+							<figcaption>
+								<strong>{{featured.3.title}}</strong>
+								<span>{{featured.3.description}}</span>
+								<em>{{featured.3.date}}</em>
+								<a href="portfolio/{{featured.3.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{featured.3.location}}"  class="thumb"><img src="portfolio/{{featured.3.location}}/img/thumbnail.jpg"/></a>
+						</figure>
+
+						<figure>
+							<figcaption>
+								<strong>{{featured.4.title}}</strong>
+								<span>{{featured.4.description}}</span>
+								<em>{{featured.4.date}}</em>
+								<a href="portfolio/{{featured.4.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{featured.4.location}}"  class="thumb"><img src="portfolio/{{featured.4.location}}/img/thumbnail.jpg"/></a>
+						</figure>
+
+						<figure class="last">
+							<figcaption>
+								<strong>{{featured.5.title}}</strong>
+								<span>{{featured.5.description}}</span>
+								<em>{{featured.5.date}}</em>
+								<a href="portfolio/{{featured.5.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{featured.5.location}}"  class="thumb"><img src="portfolio/{{featured.5.location}}/img/thumbnail.jpg"/></a>
+						</figure>
+						
+					</div>
+				</div>
+				<!-- ENDS home-block -->
+	        	
+	        	
+	        	<!-- home-block -->
+	        	<div class="home-block">
+	        		<h2 class="home-block-heading"><span>LATEST PROJECTS</span></h2>
+	        		<div class="one-fourth-thumbs clearfix">
+	        			
+						
+						<figure>
+							<figcaption>
+								<strong>{{latest.0.title}}</strong>
+								<span>{{latest.0.description}}</span>
+								<em>{{latest.0.date}}</em>
+								<a href="portfolio/{{latest.0.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{latest.0.location}}"  class="thumb"><img src="portfolio/{{latest.0.location}}/img/thumbnail.png"/></a>
+						</figure>
+														
+						<figure>
+							<figcaption>
+								<strong>{{latest.1.title}}</strong>
+								<span>{{latest.1.description}}</span>
+								<em>{{latest.1.date}}</em>
+								<a href="portfolio/{{latest.1.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{latest.1.location}}"  class="thumb"><img src="portfolio/{{latest.1.location}}/img/thumbnail.png"/></a>
+						</figure>
+
+						<figure>
+							<figcaption>
+								<strong>{{latest.2.title}}</strong>
+								<span>{{latest.2.description}}</span>
+								<em>{{latest.2.date}}</em>
+								<a href="portfolio/{{latest.2.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{latest.2.location}}"  class="thumb"><img src="portfolio/{{latest.2.location}}/img/thumbnail.png"/></a>
+						</figure>
+
+						<figure class="last">
+							<figcaption>
+								<strong>{{latest.3.title}}</strong>
+								<span>{{latest.3.description}}</span>
+								<em>{{latest.3.date}}</em>
+								<a href="portfolio/{{latest.3.location}}" class="opener"></a>
+							</figcaption>
+							
+							<a href="portfolio/{{latest.3.location}}"  class="thumb"><img src="portfolio/{{latest.3.location}}/img/thumbnail.png"/></a>
+						</figure>
+		        		
+		        		<a href="portfolio" class="more-link right">More projects  &#8594;</a>
+		        		
+	        		</div>
+	        	</div>
+	        	<!-- ENDS home-block -->  	
+			</div>
+		</div>
+		<!-- ENDS MAIN -->
+		
+		<footer>
+			<div class="wrapper">
+				<div class="footer-bottom">
+					<div class="right">
+						<ul id="social-bar">
+							<li><a href="https://www.linkedin.com/in/upaymeifixit/"  title="LinkedIn" class="poshytip"><img src="img/social/linkedin.png"  alt="LinkedIn" /></a></li>
+							<li><a href="https://github.com/upaymeifixit"  title="Github" class="poshytip"><img src="img/social/github.png"  alt="Github" /></a></li>
+							<li><a href="https://www.facebook.com/uPaymeiFixit"  title="Facebook" class="poshytip"><img src="img/social/facebook.png"  alt="Facebook" /></a></li>
+							<li><a href="https://plus.google.com/+JoshGibbs_uPaymeiFixit"  title="Google+" class="poshytip"><img src="img/social/plus.png" alt="Google plus" /></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+</html>
