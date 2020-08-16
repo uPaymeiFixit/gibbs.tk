@@ -30,7 +30,6 @@ function readJSONFile(location) {
 // to access the global json variable it creates.
 let json;
 function buildMasterJSON() {
-  console.log("Pre-tasks: Building master JSON");
   // init json file we will fill up with all project details
   json = { projects: [] };
   // get a string array of all project directories
@@ -67,8 +66,6 @@ function buildGulpTasksForProjects() {
     const task_name = `build:projects:${project.location}`;
     // Create the actual task
     exports[task_name] = function () {
-      console.log(`Compiling ${project.location}`);
-
       return Gulp.src("src/portfolio/{{project_name}}/index.mustache")
         .pipe(rename("index-mustache.html"))
         .pipe(mustache(project))
@@ -86,8 +83,6 @@ buildGulpTasksForProjects();
 
 // Compile /index.html
 exports["build:home"] = function () {
-  console.log("Building HOME Page");
-
   let index_json = {};
 
   // Move featured projects to the front of the array
@@ -110,8 +105,6 @@ exports["build:home"].displayName = "build:home";
 
 // Compile /portfolio/index.html
 exports["build:portfolio"] = function () {
-  console.log("Building PORTFOLIO Page");
-
   // Sort projects by date
   json.projects.sort((a, b) => new Date(b.date) - new Date(a.date));
 
