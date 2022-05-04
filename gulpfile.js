@@ -2,6 +2,7 @@ const Gulp = require("gulp");
 const rename = require("gulp-rename");
 const mustache = require("gulp-mustache");
 const fs = require("fs");
+const showdown = require("showdown");
 
 // remove single occurrence of 'item' from array
 Array.prototype.remove = function (item) {
@@ -66,6 +67,7 @@ function buildGulpTasksForProjects() {
     const task_name = `build:projects:${project.location}`;
     // Create the actual task
     exports[task_name] = function () {
+      transpileMarkdown(project);
       return Gulp.src("src/portfolio/{{project_name}}/index.mustache")
         .pipe(rename("index-mustache.html"))
         .pipe(mustache(project))
@@ -80,6 +82,15 @@ function buildGulpTasksForProjects() {
   exports["build:projects"] = Gulp.parallel(gulp_tasks);
 }
 buildGulpTasksForProjects();
+
+async function transpileMarkdown(project) {
+  const file_path = `src/portfolio/${project.location}/README.md`;
+  const markdown = await fs.promises.readFile(file_path, "utf8");
+  const converter = new showdown.Converter();
+  converter.setFlavor("github");
+  const html = converter.makeHtml(markdown);
+  project.markdown = html;
+}
 
 // Compile /index.html
 exports["build:home"] = function () {

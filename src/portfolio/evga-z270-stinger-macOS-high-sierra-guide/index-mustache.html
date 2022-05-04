@@ -91,8 +91,6 @@
 				<!-- project content -->
 				<div id="project-content" class="clearfix">
 					
-					
-					
 					<!-- slider -->
 					<div class="project-slider">
 				    <div class="flexslider">
@@ -110,18 +108,133 @@
 						</div>
 					</div>
 		      <!-- ENDS slider -->
+					
 		        	
 		      <!-- heading -->
 					<div class="project-heading">
 						<h2>OpenCore Hackintosh Guide</h2>
-						<a href="" class="launch">Launch project</a>
+						<a href="https://github.com/uPaymeiFixit/evga-z270-stinger-macOS-high-sierra-guide" class="launch">Launch project</a>
 						<div class="clearfix"></div>
 					</div>
 					<!-- ENDS heading -->
 	        	
 	        	
 					<div class="project-description">
-						
+						<p><img src="https://user-images.githubusercontent.com/1683528/30621820-3f35d7b6-9d62-11e7-9b85-1957c73bbfdb.png" alt="img_20170917_020151" /></p>
+<h1 id="high-sierra-hackintosh-guide-for-evga-z270-stinger-200-series">High Sierra Hackintosh Guide for EVGA Z270 Stinger (200 series)</h1>
+<p>A guide for installing macOS High Sierra on an EVGA Z270 Stinger motherboard and i7-7700k with OpenCore</p>
+<p>This guide will show you how to install <strong>macOS High Sierra 10.13.6</strong> on a desktop running an EVGA Z270 Stinger motherboard. There are no changes made to the operating system partition, resulting in a very <em>vanilla</em> and therefore upgradable experience. This guide uses the OpenCore bootloader instead of Clover. This is important to know when diagnosing problems. For best results, use the hardware listed below.</p>
+<h2 id="hardware">Hardware</h2>
+<ul>
+<li><a href="https://www.evga.com/products/product.aspx?pn=111-KS-E272-KR">EVGA Z270 Stinger (111-KS-E272-KR)</a></li>
+<li><a href="https://ark.intel.com/products/97129/Intel-Core-i7-7700K-Processor-8M-Cache-up-to-4_50-GHz">i7-7700k</a></li>
+<li><a href="https://www.evga.com/products/product.aspx?pn=11G-P4-6593-RX">EVGA GTX 1080 Ti SC2</a></li>
+<li><a href="http://www.samsung.com/us/computing/memory-storage/solid-state-drives/ssd-960-evo-m-2-500gb-mz-v6e500bw/">Samsung 960 EVO NVMe M.2 500GB</a></li>
+</ul>
+<p><a href="https://pcpartpicker.com/b/ycMZxr">View on PC Part Picker</a></p>
+<p><strong>Note:</strong> This guide may need to be tweaked for similar hardware, such as any other 200 series motherboard. Any (or no) NVMe drive, any Kaby Lake CPU, and any GPU will likely work as is. I won't go into too much detail on this guide as there will be more relevant and up-to-date information for your specific machine. The <a href="https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/">OpenCore vanilla guide</a> is a great resource, albeit rather long. Your main takeaway from this should be that the focus is 100% on the bootloader / EFI folder. No monifications need be made to macOS other than installing the Nvidia Web Drivers.</p>
+<h2 id="what-works">What works</h2>
+<ul>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> GPU hardware acceleration</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — Metal Support</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> NVMe</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — TRIM Support</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Hardware sensors</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Audio</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — All 5 analog in/out ports</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Ethernet</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Sleep</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — Enters low power mode</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — Audio wakes up</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — Ethernet wakes up</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — Video wakes up</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Shutdown</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — Stays shut down</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — CMOS does not reset</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> USB</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — USB 3.0</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — USB 3.1</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — USB-C</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Bluetooth</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Accurate External / Internal drive icons</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> HDCP</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> NVRAM</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> - Bootcamp (Startup disk selection)</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> - iMessage / Facetime</li>
+</ul>
+<h2 id="what-doesnt-work">What doesn't work</h2>
+<ul>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> Audio</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> — HDMI Audio (only one port works)</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;"> Power button</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;"> Wi-Fi (AW-CB210NF-P)</li>
+</ul>
+<h1 id="instructions">Instructions</h1>
+<h2 id="step-1-create-installer">Step 1: Create Installer</h2>
+<p>Insert a flash drive and rename it <code>DELETE</code>. (<strong>IMPORTANT</strong>: The drive and everything on it will be erased.)<br />
+Then open a terminal (<em>/Applications/Utilites/Terminal.app</em>) and copy and paste the following:</p>
+<pre><code>bash &lt;(curl -s https://raw.githubusercontent.com/uPaymeiFixit/evga-z270-stinger-macOS-high-sierra-guide/master/high-sierra-media-creation-tool.command)</code></pre>
+<p><img src="https://user-images.githubusercontent.com/1683528/77610004-bfed0c80-6ede-11ea-95cf-2f2efbc7b0cb.gif" alt="rename" /></p>
+<h3 id="how-does-it-work-you-dont-have-to-read-this">How does it work? (you don't have to read this)</h3>
+<p>If you're reading this, that's good. You probably understand that running a script blindly (and with root permissions) can be extremely dangerous. Only run these types of scripts if you trust the author. I'll explain how it works so you can better dig through yourself.</p>
+<p>This step is usually broken up into downloading macOS, preparing the install media, and installing the bootloader. I wrote a quick script to do all of this in one step.</p>
+<p>The first thing this script does is partition the disk who has a volume named <code>DELETE</code></p>
+<pre><code>diskutil partitionDisk /dev/`diskutil info "DELETE" | grep "Part of Whole:" | tail -c 6` GPT JHFS+ "DELETE" 100%</code></pre>
+<p>After we've formatted the drive the script downloads macOS High Sierra straight from Apple's CDN. The os is broken up into many different files, so we have to download them all.</p>
+<pre><code>wget http://swcdn.apple.com/content/downloads/06/50/041-91758-A_M8T44LH2AW/b5r4og05fhbgatve4agwy4kgkzv07mdid9/BaseSystem.chunklist
+...
+wget http://swcdn.apple.com/content/downloads/06/50/041-91758-A_M8T44LH2AW/b5r4og05fhbgatve4agwy4kgkzv07mdid9/InstallInfo.plist</code></pre>
+<p>Next we download CorpNewt's <a href="https://github.com/corpnewt/gibMacOS">gibMacOS</a> utility and use it to compile the files we just downloaded into <em>Install macOS High Sierra.app</em>. This is not my script, and I don't know how it works, but I'm glad it exists and I trust it because it doesn't ask for any elevated permissions and we're only downloading an archived version, so nothing new and malicious can be added.</p>
+<pre><code>wget https://github.com/corpnewt/gibMacOS/archive/c2e45ce568069d0dce027ec84d9c1ed8bbad2e21.zip
+...
+echo "high-sierra-files" | ./gibMacOS-c2e45ce568069d0dce027ec84d9c1ed8bbad2e21/BuildmacOSInstallApp.command</code></pre>
+<p>Now we download my repository containing my EFI folder.</p>
+<pre><code>wget https://github.com/uPaymeiFixit/evga-z270-stinger-hackintosh-guide/archive/master.zip</code></pre>
+<p>Next we find the volume named <code>Install macOS High Sierra</code> and mount the EFI partition, then copy my EFI folder to it.</p>
+<pre><code>diskutil mount "`diskutil info "Install macOS High Sierra" | grep "Part of Whole:" | tail -c 6`s1"
+...
+cp -a evga-z270-stinger-hackintosh-guide-master/EFI /Volumes/EFI/</code></pre>
+<p>That's it! You should now have a flash drive that can boot a macOS installer. For the most part that creates your entire hackintosh, and if you're using all of the hardware I'm using you shouldn't run into any problems. If you do run into problems, most can be solved by tweaking the config.plist in the EFI partition. I would recommend you take a look at the <a href="https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/intel-config.plist/kaby-lake">Kaby Lake OpenCore configuration</a> to start.</p>
+<h2 id="step-2-conigure-bios">Step 2: Conigure BIOS</h2>
+<p>During boot, press <code>F2</code> or <code>DEL</code> to enter BIOS.</p>
+<p>The most important thing is that you disable CSM. Navigate to the <em>BOOT</em> tab and then into <em>CSM Configuration</em>. Set <em>CSM Support</em> to <em>Disabled</em></p>
+<p><img src="https://user-images.githubusercontent.com/1683528/77609620-aeefcb80-6edd-11ea-9fcb-e07862d2a243.jpg" alt="csm_support" /></p>
+<p>If you run into problems, disable VT-d. While it's commonly recommended you disable this, it actually seemed to break sleep on my machine so I have it enabled. You can find this setting in the <em>ADVANCED</em> tab and then click on <em>CPU Configuration</em>. Set <em>Intel(R) Virtualization Technology For Directed I/O</em> to <em>Disabled</em>.</p>
+<p><img src="https://user-images.githubusercontent.com/1683528/77609748-1574e980-6ede-11ea-81dd-bc830d7542e1.jpg" alt="advanced" /><br />
+<img src="https://user-images.githubusercontent.com/1683528/77609757-186fda00-6ede-11ea-9b3e-c147b602d7ce.jpg" alt="virtualization" /></p>
+<p>Also make sure at least one of your Boot Options is set to USB Key or USB Hard Disk so you can boot from your flash drive.<br />
+<img src="https://user-images.githubusercontent.com/1683528/77609758-19087080-6ede-11ea-85de-1ddc20b0c5a7.jpg" alt="boot" /></p>
+<p>Now press F10 to save and exit setup, then boot from the flash drive. (You may have to manually select this boot device from the BIOS if it doesn't boot from it automatically.</p>
+<h2 id="step-3-install-macos">Step 3: Install macOS</h2>
+<p>Boot the computer with the flash drive plugged in, and if all goes well after a while you should be greeted with the macOS installer screen. Go through the installation normally. When the two part installer finishes boot the computer one more time with the flash drive still plugged in.</p>
+<p>Note: You may need to hold down option / alt while booting to pick your new macOS installation if it keeps booting to the installer.</p>
+<p><img src="https://user-images.githubusercontent.com/1683528/77609869-62f15680-6ede-11ea-890a-79ca832e5f42.png" alt="installer" /></p>
+<h2 id="step-4-post-install">Step 4: Post Install</h2>
+<h3 id="opencore-bootloader">OpenCore Bootloader</h3>
+<p>Now we can boot from the flash drive, but if we want to remove the flash drive we'll need to copy the bootloader from it to our local disk. If all went well you should be able to just copy the EFI folder from your install media to your macOS drive. Could I have made a script for this? Yes, but it's difficult to get the booted drive identifier and I'm pretty sure I'm the only person who is ever going to read this. But let me know if I'm wrong and this helped you.</p>
+<p>The first thing we need to do is identify our EFI partitions. Open a terminal again and type <code>diskutil list</code>. This should give you an output similar (but probably not identicle) to my screenshot below.</p>
+<p><img src="https://user-images.githubusercontent.com/1683528/77609922-8a482380-6ede-11ea-92ee-bb8f412f7cc1.png" alt="diskutil_list" /></p>
+<p>The first drive we want to identify and mount is the flash drive you used to install with. It should be named <code>Install macOS High Sierra</code>. In my case that's <code>disk4</code>, and the EFI partition on that disk is <code>1</code>. Type the following command being very careful to replace the 4 and 1 with your corrosponding disk and partition identifiers.</p>
+<pre><code>sudo diskutil mount disk4s1</code></pre>
+<p>Now we want to do the same for the EFI partiton on our local disk. This one can be tricky because APFS does this weird thing where it creates another synthesized disk which is where your OS lives, but not the EFI folder we want to mount. That's the case with mine. As you can see my <code>macOS</code> partition is disk1s1 but the corrosponding EFI partition is actually on disk0s1. We will mount it the same way.</p>
+<pre><code>sudo diskutil mount disk0s1</code></pre>
+<p><img src="https://user-images.githubusercontent.com/1683528/77609926-8b795080-6ede-11ea-9288-15a9e5d8d11a.png" alt="diskutil_mount" /></p>
+<p>Now we'll copy the EFI folder from the flash drive's EFI partiton to our local disk's EFI partition. You can do this manually or paste the following in the terminal.</p>
+<pre><code>sudo cp -a /Volumes/EFI/EFI /Volumes/EFI\ 1/</code></pre>
+<p>Done! You should be able to boot without the flash drive now.</p>
+<h3 id="nvidia-web-drivers">Nvidia Web Drivers</h3>
+<p>If you have an Nvidia card you may need to install the Nvidia Web Drivers to get accelerated graphics. You'll know if your graphics aren't accelerated. Annimations will be very weird and the dock won't be transparent. My favorite way to do this is to use Benjamin Dobell's <a href="https://github.com/Benjamin-Dobell/nvidia-update">nvidia-update</a> script by copying and pasting the script below into a terminal:</p>
+<pre><code>bash &lt;(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)</code></pre>
+<h1 id="kexts--patches--sources--credits">Kexts / Patches / Sources / Credits</h1>
+<ul>
+<li><a href="https://github.com/acidanthera/OpenCorePkg">OpenCore</a> from Acidanthera and others</li>
+<li><a href="https://github.com/corpnewt/gibMacOS">gibMacOS</a> from CorpNewt</li>
+<li><a href="https://github.com/Benjamin-Dobell/nvidia-update">nvidia-update</a> from Benjamin Dobell</li>
+<li><a href="https://github.com/toleda/audio_CloverHDMI">HDMIAudio.kext</a> from Toleda</li>
+<li><a href="https://github.com/Mieze/IntelMausiEthernet">IntelMausiEthernet.kext</a> from Mieze</li>
+<li><a href="https://github.com/vit9696/Lilu">Lilu.kext</a> from vit9696</li>
+<li><a href="https://github.com/vit9696/AppleALC/releases">AppleALC.kext</a> from vit9696</li>
+</ul>
 					</div>
 					
 					<div class="project-info">
